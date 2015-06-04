@@ -1,0 +1,2 @@
+include ':androidsdksimplexml'
+include ':hVSample'
