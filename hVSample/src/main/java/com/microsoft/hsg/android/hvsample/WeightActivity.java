@@ -12,13 +12,18 @@ import com.microsoft.hsg.android.simplexml.client.RequestCallback;
 import com.microsoft.hsg.android.simplexml.methods.getthings3.request.ThingRequestGroup2;
 import com.microsoft.hsg.android.simplexml.methods.getthings3.response.ThingResponseGroup2;
 import com.microsoft.hsg.android.simplexml.things.thing.Thing2;
+import com.microsoft.hsg.android.simplexml.things.thing.ThingKey;
+import com.microsoft.hsg.android.simplexml.things.types.base.WeightValue;
 import com.microsoft.hsg.android.simplexml.things.types.types.PersonInfo;
 import com.microsoft.hsg.android.simplexml.things.types.types.Record;
 import com.microsoft.hsg.android.simplexml.things.types.weight.Weight;
 
+
 import android.app.Activity;
+import android.content.ComponentCallbacks2;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -30,7 +35,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class WeightActivity extends Activity {
+public class    WeightActivity extends Activity implements ComponentCallbacks2 {
 
 	private HealthVaultApp service;
     private HealthVaultClient hvClient;
@@ -50,6 +55,37 @@ public class WeightActivity extends Activity {
             public void onClick(View view) {
             	if (service.isAppConnected()) {
             		putWeight(editText.getText().toString());
+                    List<Record> records = HealthVaultApp.getInstance().getRecordList();
+                    final Record record = records.get(0);
+//                    ThingKey weightKey = new ThingKey(Weight.ThingType, "1");
+//                    Thing2 weightThing = record.getThing(weightKey, null);
+
+//                    String id="Weight";
+//                    for(Record rcd : records) {
+//                        if (id == rcd.getId()) {
+//                            record = rcd;
+//                            break;
+//                        }
+//                    }
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            ThingResponseGroup2 response2 = record.getThings(ThingRequestGroup2.thingTypeQuery(Weight.ThingType));
+                            Thing2 thing = new Thing2();
+                            thing.setData(new Weight(55.00));
+                            response2.getThing().add(0, thing);
+                            Weight w = (Weight)thing.getData();
+                            String wString = String.valueOf(w.getValue().getKg());
+                            hvClient.asyncRequest(
+                                    currentRecord.putThingAsync(thing),
+                                    new WeightCallback(WeightCallback.PutWeights));
+                            Log.e("Thing Type Weight: ", wString);
+                            Log.e("ThingType weight", response2.getThing().get(0).getData().toString());
+
+                        }
+                    }).start();
+
             	}
             }
         });

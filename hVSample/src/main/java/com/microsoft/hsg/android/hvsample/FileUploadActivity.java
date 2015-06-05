@@ -78,13 +78,13 @@ public class FileUploadActivity extends Activity {
 					hvClient.asyncRequest(hvFile.uploadAsync(HealthVaultApp.getInstance().getCurrentRecord(), null, source), 
 	        				new FileUploadActivityCallback<Void>());
 				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
+					Log.e("FileUploadActivity", "FileNotFoundException");
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+                    Log.e("FileUploadActivity","IOException" );
+                    e.printStackTrace();
 				} catch (URISyntaxException e) {
-					// TODO Auto-generated catch block
+                    Log.e("FileUploadActivity", "URISyntaxExcetption");
 					e.printStackTrace();
 				}
             }

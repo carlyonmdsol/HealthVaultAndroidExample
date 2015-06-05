@@ -18,6 +18,7 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v4.util.LruCache;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ import com.microsoft.hsg.android.simplexml.methods.getthings3.response.ThingResp
 import com.microsoft.hsg.android.simplexml.things.thing.Thing2;
 import com.microsoft.hsg.android.simplexml.things.types.personalimage.PersonalImage;
 import com.microsoft.hsg.android.simplexml.things.types.types.Record;
+import com.microsoft.hsg.android.simplexml.things.types.weight.Weight;
 
 public class PersonalImageLoader implements ComponentCallbacks2 {
 
