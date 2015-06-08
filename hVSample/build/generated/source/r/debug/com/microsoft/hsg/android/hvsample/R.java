@@ -10,6 +10,9 @@ package com.microsoft.hsg.android.hvsample;
 public final class R {
     public static final class array {
         public static final int countries_array=0x7f060000;
+        public static final int medication_dosage_array=0x7f060001;
+        public static final int medication_how_array=0x7f060002;
+        public static final int medication_strength_array=0x7f060003;
     }
     public static final class attr {
     }
@@ -21,40 +24,52 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_connect=0x7f090011;
-        public static final int addWeight=0x7f09000c;
-        public static final int addWeightContainer=0x7f09000a;
-        public static final int autoCompleteTextView1=0x7f090006;
+        public static final int action_connect=0x7f09001c;
+        public static final int addWeight=0x7f090017;
+        public static final int addWeightContainer=0x7f090015;
+        public static final int autoCompleteTextView1=0x7f090011;
         public static final int camera_click=0x7f090003;
         public static final int camera_preview=0x7f090001;
         public static final int camera_progressContainer=0x7f090004;
         public static final int camera_surfaceView=0x7f090002;
-        public static final int clear=0x7f090012;
+        public static final int clear=0x7f09001d;
         public static final int container=0x7f090005;
-        public static final int current_record_name=0x7f090007;
+        public static final int current_record_name=0x7f090012;
         public static final int defaultFileupload=0x7f090000;
-        public static final int goButton=0x7f09000f;
-        public static final int recordIcon=0x7f090008;
-        public static final int record_name_layout=0x7f090010;
-        public static final int sync=0x7f090013;
-        public static final int txtrecordName=0x7f090009;
-        public static final int weightInput=0x7f09000b;
-        public static final int weightList=0x7f09000d;
-        public static final int welcomeText=0x7f09000e;
+        public static final int goButton=0x7f09001a;
+        public static final int medication_button=0x7f090010;
+        public static final int medication_dosage_spinner=0x7f09000a;
+        public static final int medication_dosage_text=0x7f090009;
+        public static final int medication_end_date_text=0x7f09000f;
+        public static final int medication_how_spinner=0x7f09000b;
+        public static final int medication_how_text=0x7f09000c;
+        public static final int medication_name_text=0x7f090006;
+        public static final int medication_reason_text=0x7f09000d;
+        public static final int medication_start_date_text=0x7f09000e;
+        public static final int medication_strength_spinner=0x7f090008;
+        public static final int medication_strength_text=0x7f090007;
+        public static final int recordIcon=0x7f090013;
+        public static final int record_name_layout=0x7f09001b;
+        public static final int sync=0x7f09001e;
+        public static final int txtrecordName=0x7f090014;
+        public static final int weightInput=0x7f090016;
+        public static final int weightList=0x7f090018;
+        public static final int welcomeText=0x7f090019;
     }
     public static final class layout {
         public static final int activity_fileupload=0x7f030000;
         public static final int activity_localvault=0x7f030001;
         public static final int activity_main=0x7f030002;
-        public static final int activity_vocab=0x7f030003;
-        public static final int current_record_item=0x7f030004;
-        public static final int fragment_localvault=0x7f030005;
-        public static final int list_item=0x7f030006;
-        public static final int record_picker_item=0x7f030007;
-        public static final int recordpicker=0x7f030008;
-        public static final int vocab=0x7f030009;
-        public static final int weight=0x7f03000a;
-        public static final int welcome=0x7f03000b;
+        public static final int activity_medication=0x7f030003;
+        public static final int activity_vocab=0x7f030004;
+        public static final int current_record_item=0x7f030005;
+        public static final int fragment_localvault=0x7f030006;
+        public static final int list_item=0x7f030007;
+        public static final int record_picker_item=0x7f030008;
+        public static final int recordpicker=0x7f030009;
+        public static final int vocab=0x7f03000a;
+        public static final int weight=0x7f03000b;
+        public static final int welcome=0x7f03000c;
     }
     public static final class menu {
         public static final int main=0x7f080000;

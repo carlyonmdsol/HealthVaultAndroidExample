@@ -20,7 +20,26 @@
         <item>Angola</item>
         <item>Anguilla</item>
         <item>Antarctica</item>
-    </string-array><string name="action_settings">Settings</string><string name="app_name">HVSample</string><string name="sync">Sync</string><string name="clear">Clear</string></file><file path="/Users/jcarlyon/Development/HVSample/hVSample/src/main/res/values/styles.xml" qualifiers=""><style name="AppTheme" parent="AppBaseTheme">
+    </string-array><string name="action_settings">Settings</string><string name="app_name">HVSample</string><string-array name="medication_dosage_array">
+        <item>Bags</item>
+        <item>Bars</item>
+        <item>Doses</item>
+        <item>Drops</item>
+        <item>Other</item>
+    </string-array><string name="sync">Sync</string><string-array name="medication_how_array">
+        <item>Injection</item>
+        <item>Mouth</item>
+        <item>Ear</item>
+        <item>Eye</item>
+        <item>Other</item>
+    </string-array><string name="clear">Clear</string><string-array name="medication_strength_array">
+        <item>Colony forming units per milliliter (cfu/ml)</item>
+        <item>International Unit (iu)</item>
+        <item>Microgram (mcg)</item>
+        <item>Milliequivalent (meq)</item>
+        <item>Milliequivalent per milliliter (meq/ml)</item>
+        <item>Other</item>
+    </string-array></file><file path="/Users/jcarlyon/Development/HVSample/hVSample/src/main/res/values/styles.xml" qualifiers=""><style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style><style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
@@ -32,4 +51,4 @@
         <!-- API 11 theme customizations can go here. -->
     </style></file><file path="/Users/jcarlyon/Development/HVSample/hVSample/src/main/res/values-v14/styles.xml" qualifiers="v14"><style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- API 14 theme customizations can go here. -->
-    </style></file></source><source path="/Users/jcarlyon/Development/HVSample/hVSample/build/generated/res/rs/debug"/><source path="/Users/jcarlyon/Development/HVSample/hVSample/build/generated/res/generated/debug"/></dataSet><dataSet config="debug"><source path="/Users/jcarlyon/Development/HVSample/hVSample/src/debug/res"/></dataSet><mergedItems/></merger>
+    </style></file><file name="activity_medication" path="/Users/jcarlyon/Development/HVSample/hVSample/src/main/res/layout/activity_medication.xml" qualifiers="" type="layout"/></source><source path="/Users/jcarlyon/Development/HVSample/hVSample/build/generated/res/rs/debug"/><source path="/Users/jcarlyon/Development/HVSample/hVSample/build/generated/res/generated/debug"/></dataSet><dataSet config="debug"><source path="/Users/jcarlyon/Development/HVSample/hVSample/src/debug/res"/></dataSet><mergedItems/></merger>

@@ -12,6 +12,28 @@
         <item>Anguilla</item>
         <item>Antarctica</item>
     </string-array>
+    <string-array name="medication_dosage_array">
+        <item>Bags</item>
+        <item>Bars</item>
+        <item>Doses</item>
+        <item>Drops</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="medication_how_array">
+        <item>Injection</item>
+        <item>Mouth</item>
+        <item>Ear</item>
+        <item>Eye</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="medication_strength_array">
+        <item>Colony forming units per milliliter (cfu/ml)</item>
+        <item>International Unit (iu)</item>
+        <item>Microgram (mcg)</item>
+        <item>Milliequivalent (meq)</item>
+        <item>Milliequivalent per milliliter (meq/ml)</item>
+        <item>Other</item>
+    </string-array>
     <!-- From: file:/Users/jcarlyon/Development/HVSample/hVSample/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>

@@ -34,6 +34,7 @@
         <activity android:name="RecordPickerActivity"></activity>
         <activity android:name="FileUploadActivity"></activity>
         <activity android:name="LocalVaultActivity"></activity>
+        <activity android:name=".MedicationActivity"></activity>
         <provider
            android:name="com.microsoft.hsg.android.simplexml.store.HVContentProvider"
            android:authorities="com.microsoft.hsg.android.store"

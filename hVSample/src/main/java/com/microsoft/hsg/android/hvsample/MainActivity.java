@@ -41,7 +41,7 @@ public class MainActivity
 	String[] tests = {
             "WeightPutGet",
             "FileUpload",
-            "FileDownload",
+            "Medication",
             "VocabTest",
             "LocalVault"
     };
@@ -142,8 +142,9 @@ public class MainActivity
                     true);
 			
 			HealthVaultSettings settings = service.getSettings();
-			settings.setMasterAppId("c6ba979f-c342-4408-a2bc-0dfb43b2bf8d");
-			settings.setServiceUrl("https://platform.healthvault-ppe.com/platform/wildcat.ashx");
+			//settings.setMasterAppId("c6ba979f-c342-4408-a2bc-0dfb43b2bf8d");
+			settings.setMasterAppId("4aec3fea-e0ac-435c-af27-386fde06d5b6");
+            settings.setServiceUrl("https://platform.healthvault-ppe.com/platform/wildcat.ashx");
 			settings.setShellUrl("https://account.healthvault-ppe.com");
 			settings.setIsMultiInstanceAware(true);
 			settings.setIsMRA(true);
@@ -169,7 +170,7 @@ public class MainActivity
 	        	intent = new Intent(MainActivity.this, FileUploadActivity.class);
 	        	break;
 	        case 2:
-	        	intent = new Intent(MainActivity.this, FileDownloadActivity.class);
+	        	intent = new Intent(MainActivity.this, MedicationActivity.class);
 	        	break;
 	        case 3:
 	        	intent = new Intent(MainActivity.this, VocabActivity.class);

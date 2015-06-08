@@ -91,15 +91,19 @@ activity#com.microsoft.hsg.android.hvsample.LocalVaultActivity
 ADDED from AndroidManifest.xml:36:9
 	android:name
 		ADDED from AndroidManifest.xml:36:19
-provider#com.microsoft.hsg.android.simplexml.store.HVContentProvider
+activity#com.microsoft.hsg.android.hvsample.MedicationActivity
 ADDED from AndroidManifest.xml:37:9
-	android:authorities
-		ADDED from AndroidManifest.xml:39:12
-	android:grantUriPermissions
-		ADDED from AndroidManifest.xml:41:12
-	android:label
-		ADDED from AndroidManifest.xml:42:12
-	android:exported
-		ADDED from AndroidManifest.xml:40:12
 	android:name
-		ADDED from AndroidManifest.xml:38:12
+		ADDED from AndroidManifest.xml:37:19
+provider#com.microsoft.hsg.android.simplexml.store.HVContentProvider
+ADDED from AndroidManifest.xml:38:9
+	android:authorities
+		ADDED from AndroidManifest.xml:40:12
+	android:grantUriPermissions
+		ADDED from AndroidManifest.xml:42:12
+	android:label
+		ADDED from AndroidManifest.xml:43:12
+	android:exported
+		ADDED from AndroidManifest.xml:41:12
+	android:name
+		ADDED from AndroidManifest.xml:39:12

@@ -7,10 +7,15 @@ import java.util.concurrent.Callable;
 import com.microsoft.hsg.HVException;
 import com.microsoft.hsg.android.simplexml.HealthVaultApp;
 import com.microsoft.hsg.android.simplexml.ShellActivity;
+import com.microsoft.hsg.android.simplexml.client.HealthVaultAsyncRequest;
 import com.microsoft.hsg.android.simplexml.client.HealthVaultClient;
 import com.microsoft.hsg.android.simplexml.client.RequestCallback;
 import com.microsoft.hsg.android.simplexml.methods.getthings3.request.ThingRequestGroup2;
+import com.microsoft.hsg.android.simplexml.methods.getthings3.request.ThingSectionSpec2;
 import com.microsoft.hsg.android.simplexml.methods.getthings3.response.ThingResponseGroup2;
+import com.microsoft.hsg.android.simplexml.methods.putthings2.request.PutThings2Request;
+import com.microsoft.hsg.android.simplexml.things.thing.Audit2;
+import com.microsoft.hsg.android.simplexml.things.thing.HealthVaultThing;
 import com.microsoft.hsg.android.simplexml.things.thing.Thing2;
 import com.microsoft.hsg.android.simplexml.things.thing.ThingKey;
 import com.microsoft.hsg.android.simplexml.things.types.base.WeightValue;
@@ -35,7 +40,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class    WeightActivity extends Activity implements ComponentCallbacks2 {
+public class WeightActivity extends Activity implements ComponentCallbacks2 {
 
 	private HealthVaultApp service;
     private HealthVaultClient hvClient;
@@ -53,40 +58,34 @@ public class    WeightActivity extends Activity implements ComponentCallbacks2 {
 		
         weightsBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-            	if (service.isAppConnected()) {
-            		putWeight(editText.getText().toString());
-                    List<Record> records = HealthVaultApp.getInstance().getRecordList();
-                    final Record record = records.get(0);
-//                    ThingKey weightKey = new ThingKey(Weight.ThingType, "1");
-//                    Thing2 weightThing = record.getThing(weightKey, null);
-
-//                    String id="Weight";
-//                    for(Record rcd : records) {
-//                        if (id == rcd.getId()) {
-//                            record = rcd;
-//                            break;
+                if (service.isAppConnected()) {
+                    putWeight(editText.getText().toString());
+//                    List<Record> records = HealthVaultApp.getInstance().getRecordList();
+//                    final Record record = records.get(0);
+//                    final ArrayList<ThingSectionSpec2> thingArray = new ArrayList<ThingSectionSpec2>();
+//                    final ThingKey weightKey = new ThingKey(Weight.ThingType, null);
+//                    new Thread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            ThingResponseGroup2 response2 = record.getThings(ThingRequestGroup2.thingTypeQuery(Weight.ThingType));
+//                            HealthVaultApp.getInstance().getCurrentRecord().getThing(weightKey, thingArray);
+//                            Thing2 thing = new Thing2();
+//                            thing.setData(new Weight(551.00));
+//                         //   Thing2 thingTest = response2.getThing().get(0);
+//                           // response2.getThing().add(0, thing);
+//                           // thingTest.setUpdated(thingTest.getCreated());
+//                           // Weight w = (Weight) thing.getData();
+//                           // Weight w2 = (Weight) thingTest.getData();
+//                         //   String wString = String.valueOf(w.getValue().getKg());
+//                           // String wString2 = String.valueOf(w2.getValue().getKg());
+//                            //Log.e("Thing Type Weight: ", wString + "\n" + wString2);
+//                           // Log.e("ThingType weight", response2.getThing().get(0).getData().toString());
+//                           // Log.e("ThingType weight", wString2);
+//
 //                        }
-//                    }
+//                    }).start();
 
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            ThingResponseGroup2 response2 = record.getThings(ThingRequestGroup2.thingTypeQuery(Weight.ThingType));
-                            Thing2 thing = new Thing2();
-                            thing.setData(new Weight(55.00));
-                            response2.getThing().add(0, thing);
-                            Weight w = (Weight)thing.getData();
-                            String wString = String.valueOf(w.getValue().getKg());
-                            hvClient.asyncRequest(
-                                    currentRecord.putThingAsync(thing),
-                                    new WeightCallback(WeightCallback.PutWeights));
-                            Log.e("Thing Type Weight: ", wString);
-                            Log.e("ThingType weight", response2.getThing().get(0).getData().toString());
-
-                        }
-                    }).start();
-
-            	}
+                }
             }
         });
     }
@@ -121,11 +120,12 @@ public class    WeightActivity extends Activity implements ComponentCallbacks2 {
     
     private void putWeight(String value) {
         final Thing2 thing = new Thing2();
-		thing.setData(new Weight(Double.parseDouble(value)));
+		thing.setData(new Weight(55.45));
+		//thing.setData(new Weight(Double.parseDouble(value)));
         // thing.setData(new Weight(-10));
 		hvClient.asyncRequest(
-				currentRecord.putThingAsync(thing),
-				new WeightCallback(WeightCallback.PutWeights));
+                currentRecord.putThingAsync(thing),
+                new WeightCallback(WeightCallback.PutWeights));
     }
     
     private void renderWeights(List<Thing2> things) {
@@ -174,4 +174,5 @@ public class    WeightActivity extends Activity implements ComponentCallbacks2 {
             }
         }
     }
+
 }
