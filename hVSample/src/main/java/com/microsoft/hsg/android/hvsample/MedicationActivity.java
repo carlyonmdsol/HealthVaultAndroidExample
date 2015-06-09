@@ -127,8 +127,11 @@ public class MedicationActivity extends Activity {
                 medObject.setStrength(input);
                 medName.setText(reasonTaken.getText().toString());
                 medObject.setIndication(medName);
+                medName.setText(howOften.getText().toString());
+                medObject.setRoute(medName);
                 ApproxDateTime date = new ApproxDateTime();
                 date.setDescriptive(startDate.getText().toString());
+                //dates are strings, only requirement to have start before end date not equal
                 medObject.setDateStarted(date);
                 date.setDescriptive(endDate.getText().toString());
                 medObject.setDateStarted(date);
