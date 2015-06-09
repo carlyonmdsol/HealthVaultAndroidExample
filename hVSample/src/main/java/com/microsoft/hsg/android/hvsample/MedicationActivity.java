@@ -20,6 +20,7 @@ import com.microsoft.hsg.android.simplexml.things.thing.ThingKey;
 import com.microsoft.hsg.android.simplexml.things.types.base.CodableValue;
 import com.microsoft.hsg.android.simplexml.things.types.base.CodedValue;
 import com.microsoft.hsg.android.simplexml.things.types.base.GeneralMeasurement;
+import com.microsoft.hsg.android.simplexml.things.types.dates.ApproxDate;
 import com.microsoft.hsg.android.simplexml.things.types.dates.ApproxDateTime;
 import com.microsoft.hsg.android.simplexml.things.types.medication.Medication;
 import com.microsoft.hsg.android.simplexml.things.types.types.Record;
@@ -136,12 +137,14 @@ public class MedicationActivity extends Activity {
 
                 //medName.setText(howOften.getText().toString());
                // medObject.setRoute(medName);
-                ApproxDateTime date = new ApproxDateTime();
-                date.setDescriptive(startDate.getText().toString());
-                //dates are strings, only requirement to have start before end date not equal
-                medObject.setDateStarted(date);
-                date.setDescriptive(endDate.getText().toString());
-                medObject.setDateStarted(date);
+
+                ApproxDateTime inputStartDate = new ApproxDateTime();
+                inputStartDate.setDescriptive(startDate.getText().toString());
+                medObject.setDateStarted(inputStartDate);
+
+                ApproxDateTime inputEndDate = new ApproxDateTime();
+                inputEndDate.setDescriptive(endDate.getText().toString());
+                medObject.setDateDiscontinued(inputEndDate);
                 hvClient.asyncRequest(
                         currentRecord.putThingDataAsync(medObject), new MedCallback(1));
                 Log.e("ThingType medication", medObject.getDose().getDisplay() + "   " + currentRecord.getName() );
