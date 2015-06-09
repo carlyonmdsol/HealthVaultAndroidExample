@@ -108,50 +108,40 @@ public class MedicationActivity extends Activity {
     }
 
     public void submitData(){
-        List<Record> records = HealthVaultApp.getInstance().getRecordList();
-        final Record record = records.get(0);
-        final ArrayList<ThingSectionSpec2> thingArray = new ArrayList<ThingSectionSpec2>();
-        final ThingKey medKey = new ThingKey(Medication.ThingType, null);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                ThingResponseGroup2 response2 = record.getThings(ThingRequestGroup2.thingTypeQuery(Medication.ThingType));
+        Medication medObject = new Medication();
+        CodableValue medName = new CodableValue();
+        GeneralMeasurement input = new GeneralMeasurement();
+        GeneralMeasurement inputStrength = new GeneralMeasurement();
+        CodableValue inputReason = new CodableValue();
+        ApproxDateTime inputStartDate = new ApproxDateTime();
+        ApproxDateTime inputEndDate = new ApproxDateTime();
 
-                Medication medObject = new Medication();
-                CodableValue medName = new CodableValue();
-                GeneralMeasurement input = new GeneralMeasurement();
-
-                medName.setText(name.getText().toString());
-                medObject.setName(medName);
-
-                input.setDisplay(dosage.getText().toString() + " " + dosageSpinner.getSelectedItem().toString());
-                medObject.setDose(input);
-
-                GeneralMeasurement inputStrength = new GeneralMeasurement();
-                inputStrength.setDisplay(strength.getText().toString() + " " + strengthSpinner.getSelectedItem().toString());
-                medObject.setStrength(inputStrength);
-
-                CodableValue inputReason = new CodableValue();
-                inputReason.setText(reasonTaken.getText().toString());
-                medObject.setIndication(inputReason);
-
-                //medName.setText(howOften.getText().toString());
-               // medObject.setRoute(medName);
-
-                ApproxDateTime inputStartDate = new ApproxDateTime();
-                inputStartDate.setDescriptive(startDate.getText().toString());
-                medObject.setDateStarted(inputStartDate);
-
-                ApproxDateTime inputEndDate = new ApproxDateTime();
-                inputEndDate.setDescriptive(endDate.getText().toString());
-                medObject.setDateDiscontinued(inputEndDate);
-                hvClient.asyncRequest(
-                        currentRecord.putThingDataAsync(medObject), new MedCallback(1));
-                Log.e("ThingType medication", medObject.getDose().getDisplay() + "   " + currentRecord.getName() );
+        medName.setText(name.getText().toString());
+        medObject.setName(medName);
 
 
-            }
-        }).start();
+        input.setDisplay(dosage.getText().toString() + " " + dosageSpinner.getSelectedItem().toString());
+        medObject.setDose(input);
+
+        inputStrength.setDisplay(strength.getText().toString() + " " + strengthSpinner.getSelectedItem().toString());
+        medObject.setStrength(inputStrength);
+
+        //Sets the "Reason for taking" category
+        inputReason.setText(reasonTaken.getText().toString());
+        medObject.setIndication(inputReason);
+
+        inputStartDate.setDescriptive(startDate.getText().toString());
+        medObject.setDateStarted(inputStartDate);
+
+        inputEndDate.setDescriptive(endDate.getText().toString());
+        medObject.setDateDiscontinued(inputEndDate);
+
+        hvClient.asyncRequest(
+                currentRecord.putThingDataAsync(medObject), new MedCallback(1));
+        Log.e("ThingType medication", medObject.getDose().getDisplay() + "   " + currentRecord.getName() );
+
+
+
     }
 
     public class MedCallback<Object> implements RequestCallback {
