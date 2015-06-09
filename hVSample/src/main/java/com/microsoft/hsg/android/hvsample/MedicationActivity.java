@@ -118,17 +118,24 @@ public class MedicationActivity extends Activity {
 
                 Medication medObject = new Medication();
                 CodableValue medName = new CodableValue();
+                GeneralMeasurement input = new GeneralMeasurement();
+
                 medName.setText(name.getText().toString());
                 medObject.setName(medName);
-                GeneralMeasurement input = new GeneralMeasurement();
+
                 input.setDisplay(dosage.getText().toString() + " " + dosageSpinner.getSelectedItem().toString());
                 medObject.setDose(input);
-                input.setDisplay(strength.getText().toString() + " " + strengthSpinner.getSelectedItem().toString());
-                medObject.setStrength(input);
-                medName.setText(reasonTaken.getText().toString());
-                medObject.setIndication(medName);
-                medName.setText(howOften.getText().toString());
-                medObject.setRoute(medName);
+
+                GeneralMeasurement inputStrength = new GeneralMeasurement();
+                inputStrength.setDisplay(strength.getText().toString() + " " + strengthSpinner.getSelectedItem().toString());
+                medObject.setStrength(inputStrength);
+
+                CodableValue inputReason = new CodableValue();
+                inputReason.setText(reasonTaken.getText().toString());
+                medObject.setIndication(inputReason);
+
+                //medName.setText(howOften.getText().toString());
+               // medObject.setRoute(medName);
                 ApproxDateTime date = new ApproxDateTime();
                 date.setDescriptive(startDate.getText().toString());
                 //dates are strings, only requirement to have start before end date not equal
